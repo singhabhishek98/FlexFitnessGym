@@ -19,14 +19,14 @@ const Contact = () => {
                 <i className="fas fa-map-marker-alt"></i>
                 <div>
                   <h4>Address</h4>
-                  <p>123 Fitness Street, Gym City, GC 12345</p>
+                  <p> Nakain Chauraha, Near Primary School Varanasi</p>
                 </div>
               </div>
               <div className="info-item">
                 <i className="fas fa-phone"></i>
                 <div>
                   <h4>Phone</h4>
-                  <p>+1 (555) 123-4567</p>
+                  <p> +91 8303201744</p>
                 </div>
               </div>
               <div className="info-item">

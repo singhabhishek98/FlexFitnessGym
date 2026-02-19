@@ -1,9 +1,9 @@
 const Services = () => {
   const services = [
     { icon: 'fa-user-tie', title: 'Personal Training', desc: 'One-on-one coaching tailored to your specific goals and needs' },
-    { icon: 'fa-apple-alt', title: 'Nutrition Plans', desc: 'Customized meal plans to complement your fitness journey' },
-    { icon: 'fa-calendar-check', title: 'Flexible Membership', desc: 'Choose from monthly, quarterly, or annual membership options' },
-    { icon: 'fa-clock', title: '24/7 Access', desc: 'Work out on your schedule with round-the-clock gym access' }
+    { icon: 'fa-apple-alt', title: 'Diet Plans', desc: 'Customized meal plans to complement your fitness journey' },
+    { icon: 'fa-person', title: 'Weight Gain', desc: 'Build muscle mass with specialized training and nutrition programs' },
+    { icon: 'fa-clock', title: 'Body Transformation', desc: 'Complete body makeover with expert guidance and proven results' }
   ]
 
   return (

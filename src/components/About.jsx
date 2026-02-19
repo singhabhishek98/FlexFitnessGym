@@ -13,15 +13,15 @@ const About = () => {
             <p>Our mission is to empower individuals to live healthier, stronger lives through personalized training programs and unwavering support.</p>
             <div className="about-stats">
               <div className="stat">
-                <h4>500+</h4>
+                <h4>150+</h4>
                 <p>Active Members</p>
               </div>
               <div className="stat">
-                <h4>15+</h4>
+                <h4>5+</h4>
                 <p>Expert Trainers</p>
               </div>
               <div className="stat">
-                <h4>10+</h4>
+                <h4>5+</h4>
                 <p>Years Experience</p>
               </div>
             </div>

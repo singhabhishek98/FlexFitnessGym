@@ -28,8 +28,8 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Contact Info</h3>
             <ul>
-              <li><i className="fas fa-map-marker-alt"></i> 123 Fitness Street, GC 12345</li>
-              <li><i className="fas fa-phone"></i> +1 (555) 123-4567</li>
+              <li><i className="fas fa-map-marker-alt"></i> Nakain Chauraha, Near Primary School Varanasi</li>
+              <li><i className="fas fa-phone"></i> +91 8303201744</li>
               <li><i className="fas fa-envelope"></i> info@flexfitness.com</li>
               <li><i className="fas fa-clock"></i> 24/7 Open</li>
             </ul>
