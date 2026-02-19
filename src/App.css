@@ -518,6 +518,7 @@
   background: var(--primary-gradient);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   padding: 3px;
   opacity: 0;
@@ -575,6 +576,11 @@
   transform: translateY(-3px);
 }
 
+.team-social a:has(.fa-facebook-f):hover {
+  background: #1877f2;
+  color: var(--white);
+}
+
 .team-social a:has(.fa-facebook):hover {
   background: #1877f2;
   color: var(--white);
@@ -605,7 +611,12 @@
 }
 
 .footer-section .social-links a:has(.fa-facebook):hover {
-  background: #1877f2;
+  background: #1877f2 !important;
+  color: var(--white);
+}
+
+.footer-section .social-links a:has(.fa-facebook-f):hover {
+  background: #1877f2 !important;
   color: var(--white);
 }
 
@@ -972,17 +983,7 @@
 }
 
 .footer-section .social-links a::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  transition: all 0.4s;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+  display: none;
 }
 
 .footer-section .social-links a:hover::before {
@@ -991,7 +992,6 @@
 }
 
 .footer-section .social-links a:hover {
-  background: var(--primary-color);
   transform: translateY(-3px);
 }
 
