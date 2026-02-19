@@ -21,8 +21,7 @@ const Header = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo">
-          <i className="fas fa-dumbbell"></i>
-          <span>FLEX FITNESS</span>
+          <img src="images/logo.png" alt="Flex Fitness" className="logo-img" />
         </div>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li><a onClick={() => scrollToSection('home')}>Home</a></li>

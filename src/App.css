@@ -51,6 +51,12 @@
   transition: transform 0.3s;
 }
 
+.logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
 .logo:hover {
   transform: scale(1.05);
 }
@@ -61,7 +67,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: rotate 3s linear infinite;
+}
+
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-menu {
@@ -1029,6 +1040,18 @@
   color: rgba(255, 255, 255, 0.6);
   background: rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
+}
+
+.footer-bottom a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: #ff8533;
+  text-decoration: underline;
 }
 
 /* Animations */

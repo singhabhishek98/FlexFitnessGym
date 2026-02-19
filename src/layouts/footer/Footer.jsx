@@ -5,8 +5,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="logo">
-              <i className="fas fa-dumbbell"></i>
+              <img src="images/left.png" alt="Left" className="footer-logo-img" />
               <span>FLEX FITNESS</span>
+              <img src="images/right.png" alt="Right" className="footer-logo-img" />
             </div>
             <p>Transform your body and mind with our expert trainers and state-of-the-art facilities.</p>
             <div className="social-links">
@@ -44,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 Flex Fitness Gym. All Rights Reserved.</p>
+          <p>&copy; 2026 Flex Fitness Gym. All Rights Reserved. | Designed by <a href="https://codebyabhi.netlify.app/" target="_blank" rel="noopener noreferrer">CodeByAbhi</a></p>
         </div>
       </div>
     </footer>
