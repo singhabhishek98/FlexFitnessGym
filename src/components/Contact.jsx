@@ -14,42 +14,52 @@ const Contact = () => {
         </div>
         <div className="contact-content">
           <div className="contact-left">
-            <div className="contact-info">
-              <div className="info-item">
+            <div className="contact-grid">
+              <div className="info-box">
                 <i className="fas fa-map-marker-alt"></i>
-                <div>
+                <div className="info-content">
                   <h4>Address</h4>
-                  <p> Nakain Chauraha, Near Primary School Varanasi</p>
+                  <p>Nakain Chauraha, Near Primary School Varanasi</p>
                 </div>
               </div>
-              <div className="info-item">
+              <div className="info-box">
                 <i className="fas fa-phone"></i>
-                <div>
+                <div className="info-content">
                   <h4>Phone</h4>
-                  <p> +91 8303201744</p>
+                  <p>+91 8303201744</p>
                 </div>
               </div>
-              <div className="info-item">
+              <div className="info-box">
                 <i className="fas fa-envelope"></i>
-                <div>
+                <div className="info-content">
                   <h4>Email</h4>
                   <p>info@flexfitness.com</p>
                 </div>
               </div>
-              <div className="info-item">
+              <div className="info-box">
                 <i className="fas fa-clock"></i>
-                <div>
+                <div className="info-content">
                   <h4>Hours</h4>
                   <p>24/7 Open</p>
                 </div>
               </div>
             </div>
             <form className="contact-form" onSubmit={handleSubmit}>
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
-              <input type="text" placeholder="Subject" required />
-              <textarea placeholder="Message" rows="5" required></textarea>
-              <button type="submit" className="btn-primary">Send Message</button>
+              <div className="form-group">
+                <i className="fas fa-user"></i>
+                <input type="text" placeholder="Your Name" required />
+              </div>
+              <div className="form-group">
+                <i className="fas fa-envelope"></i>
+                <input type="email" placeholder="Your Email" required />
+              </div>
+              <div className="form-group">
+                <i className="fas fa-comment"></i>
+                <textarea placeholder="Message" rows="2" required></textarea>
+              </div>
+              <div className="button-wrapper">
+                <button type="submit" className="btn-primary"><i className="fas fa-paper-plane"></i> Send</button>
+              </div>
             </form>
           </div>
           <div className="contact-map">
