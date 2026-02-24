@@ -5,29 +5,25 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'John Smith',
-      role: 'Fitness Enthusiast',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
-      text: 'Flex Fitness transformed my life! The trainers are amazing and the facilities are top-notch. I lost 30 pounds in 3 months!',
+      name: 'Abhishek Singh',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150',
+      text: 'The equipment is modern and well maintained. The personal training sessions completely transformed my physique and boosted my confidence. I’ve seen results much faster than I expected!',
       rating: 5
     },
     {
-      name: 'Emma Wilson',
-      role: 'Yoga Practitioner',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
-      text: 'Best gym experience ever! The yoga classes are incredible and the community is so supportive. Highly recommend!',
+      name: 'Priya Sharma',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+      text: 'Clean environment, top-class equipment, and motivating vibe. Flex Fitness Gym helped me stay consistent and disciplined. It’s more than a gym — it’s a fitness family.',
       rating: 5
     },
     {
-      name: 'Michael Brown',
-      role: 'Bodybuilder',
+      name: 'Rahul Verma',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150',
-      text: 'The equipment is state-of-the-art and the personal training sessions helped me achieve my bodybuilding goals faster than expected.',
+      text: 'Best gym experience ever! The classes are incredible and the community is so supportive. Highly recommend!',
       rating: 5
     },
     {
-      name: 'Sarah Davis',
-      role: 'Weight Loss Journey',
+      name: 'Aman Singh',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150',
       text: 'I never thought I could enjoy working out until I joined Flex Fitness. The atmosphere is motivating and results speak for themselves!',
       rating: 5
@@ -70,7 +66,6 @@ const Testimonials = () => {
                     <img src={item.image} alt={item.name} />
                     <div>
                       <h4>{item.name}</h4>
-                      <p>{item.role}</p>
                     </div>
                   </div>
                 </div>

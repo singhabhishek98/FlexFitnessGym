@@ -1,15 +1,15 @@
-import { useState } from 'react'
 import Header from './layouts/header/Header'
 import Footer from './layouts/footer/Footer'
 import Hero from './components/Hero'
 import About from './components/About'
-import Classes from './components/Classes'
-import Gallery from './components/Gallery'
 import Services from './components/Services'
+import Classes from './components/Classes'
+import Pricing from './components/Pricing'
 import Team from './components/Team'
+import Gallery from './components/Gallery'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
-import WhatsAppFloat from './Pages/whatsapp/WhatsAppFloat'
+import WhatsAppFloat from './components/WhatsAppFloat'
 import './App.css'
 
 function App() {
@@ -18,10 +18,11 @@ function App() {
       <Header />
       <Hero />
       <About />
-      <Classes />
-      <Gallery />
       <Services />
+      <Classes />
+      <Pricing />
       <Team />
+      <Gallery />
       <Testimonials />
       <Contact />
       <Footer />

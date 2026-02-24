@@ -2,8 +2,8 @@ const Team = () => {
   const team = [
     { img: 'images/shiv.png', name: 'ShivMangal', role: 'Head Trainer' },
     { img: 'images/Awanish.png', name: 'Awanish Singh', role: 'Head Trainer' },
-    { img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300', name: 'David Martinez', role: 'CrossFit Coach' },
-    { img: 'https://images.unsplash.com/photo-1550345332-09e3ac987658?w=300', name: 'Emily Chen', role: 'Nutritionist' }
+    // { img: '', name: 'David Martinez', role: 'CrossFit Coach' },
+    // { img: '', name: 'Emily Chen', role: 'Nutritionist' }
   ]
 
   return (
