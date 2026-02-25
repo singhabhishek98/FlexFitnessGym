@@ -2,31 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Fitness Gym - Best Gym in Varanasi | Expert Trainers Shiv Mangal & Awanish Singh</title>
+    
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://flexfitnessgym.netlify.app/" />
+    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Meta Description & Keywords -->
+    <meta name="description" content="Flex Fitness Gym Varanasi - Premium Fitness Center with Expert Trainers Shiv Mangal & Awanish Singh. Modern Equipment, Personal Training, Diet Plans, Yoga & CrossFit. Open Mon-Sat! Call +91 8303201744" />
+    <meta name="keywords" content="Flex Fitness Gym, Best Gym in Varanasi, 24/7 Gym Varanasi, Personal Training Varanasi, Fitness Center Nakain Chauraha, Weight Loss Gym, Muscle Building, CrossFit Varanasi, Yoga Classes, Diet Plans, Gym Membership Varanasi, Body Transformation, Strength Training, Cardio Workout" />
+    <meta name="author" content="Flex Fitness Gym" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="PfoEeEbW17jzbc7v7P-v5c80blGQxiRbPMHWelPWCO4" />
+    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Flex Fitness Gym - Best Gym in Varanasi | Personal Training" />
+    <meta property="og:description" content="Transform your body with expert trainers Shiv Mangal & Awanish Singh. Modern equipment & personalized programs. Join Varanasi's #1 Fitness Center at Nakain Chauraha!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flexfitnessgym.netlify.app/" />
+    <meta property="og:image" content="https://flexfitnessgym.netlify.app/images/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Flex Fitness Gym" />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Flex Fitness Gym - Best Gym in Varanasi" />
+    <meta name="twitter:description" content="Transform your body with expert trainers & modern equipment. Join Varanasi's #1 Fitness Center!" />
+    <meta name="twitter:image" content="https://flexfitnessgym.netlify.app/images/logo.png" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-UP" />
+    <meta name="geo.placename" content="Varanasi" />
+    <meta name="geo.position" content="25.3176;82.9739" />
+    <meta name="ICBM" content="25.3176, 82.9739" />
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
     <!-- Permissions Policy -->
     <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" />
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Flex Fitness Gym - Transform your body with expert trainers, state-of-the-art equipment, and personalized training programs. Join the best gym in Varanasi today!" />
-    <meta name="keywords" content="gym, fitness, workout, personal training, Varanasi gym, body transformation, weight loss, muscle gain, yoga, crossfit" />
-    <meta name="author" content="Flex Fitness Gym" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Flex Fitness Gym - Transform Your Body" />
-    <meta property="og:description" content="Build Strength, Gain Confidence, Live Better. Join Flex Fitness Gym today!" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourwebsite.com" />
-    <meta property="og:image" content="/images/logo.png" />
-    
-    <title>Flex Fitness Gym - Best Gym in Varanasi | Personal Training & Fitness Center</title>
-    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Performance Optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="/images/logo.png" as="image">
+    <style>
+      /* Critical CSS for faster initial render */
+      img { content-visibility: auto; }
+      img[loading="lazy"] { opacity: 0; transition: opacity 0.3s; }
+      img[loading="lazy"].loaded { opacity: 1; }
+    </style>
     
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -34,6 +78,87 @@
       document.addEventListener("DOMContentLoaded", function () {
         emailjs.init("Hrg8hqQiqNUHEGlgf");
       });
+    </script>
+    
+    <!-- Schema.org Structured Data for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://flexfitnessgym.netlify.app/#organization",
+      "name": "Flex Fitness Gym",
+      "alternateName": "Flex Fitness",
+      "url": "https://flexfitnessgym.netlify.app",
+      "logo": "https://flexfitnessgym.netlify.app/images/logo.png",
+      "image": "https://flexfitnessgym.netlify.app/images/logo.png",
+      "description": "Premium Fitness Center in Varanasi offering Personal Training, Diet Plans, Yoga, CrossFit and Modern Equipment for complete body transformation.",
+      "telephone": "+918303201744",
+      "email": "flexfitnessvns@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nakain Chauraha",
+        "addressLocality": "Varanasi",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "221001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.3176",
+        "longitude": "82.9739"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "05:00",
+          "closes": "09:30",
+          "description": "Morning: 5:00 AM - 9:30 AM"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "16:30",
+          "closes": "21:30",
+          "description": "Evening: 4:30 PM - 9:30 PM"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/flexfitnessgym",
+        "https://www.instagram.com/flexfitnessgym",
+        "https://www.youtube.com/@flexfitnessgym"
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Shiv Mangal",
+          "jobTitle": "Fitness Trainer"
+        },
+        {
+          "@type": "Person",
+          "name": "Awanish Singh",
+          "jobTitle": "Fitness Trainer"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Flex Fitness Gym",
+      "url": "https://flexfitnessgym.netlify.app",
+      "logo": "https://flexfitnessgym.netlify.app/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+918303201744",
+        "contactType": "Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": ["Hindi", "English"]
+      }
+    }
     </script>
   </head>
   <body>
