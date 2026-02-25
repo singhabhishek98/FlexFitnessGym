@@ -9,7 +9,16 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero">
-      <video autoPlay loop muted playsInline className="hero-video" onLoadedMetadata={handleVideoLoad}>
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        preload="metadata"
+        className="hero-video" 
+        onLoadedMetadata={handleVideoLoad}
+      >
+        <source src="https://res.cloudinary.com/dntkqvsky/video/upload/q_auto,f_auto/v1771962123/vid_oz1jwy.mp4" type="video/mp4" />
         <source src="/images/vid.mp4" type="video/mp4" />
       </video>
       <div className="hero-content">

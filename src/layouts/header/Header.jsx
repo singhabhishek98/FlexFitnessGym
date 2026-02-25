@@ -20,8 +20,8 @@ const Header = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <div className="logo">
-          <img src="images/logo.png" alt="Flex Fitness" className="logo-img" />
+        <div className="logo" onClick={() => window.location.href = 'https://flexfitnessvns.netlify.app'} style={{ cursor: 'pointer' }}>
+          <img src="/images/logo.png" alt="Flex Fitness" className="logo-img" />
         </div>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li><a onClick={() => scrollToSection('home')}>Home</a></li>
