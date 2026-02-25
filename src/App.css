@@ -55,6 +55,7 @@
   height: 70px;
   width: auto;
   object-fit: contain;
+  aspect-ratio: auto;
 }
 
 .logo:hover {
@@ -73,6 +74,7 @@
   height: 40px;
   width: auto;
   object-fit: contain;
+  aspect-ratio: auto;
 }
 
 .nav-menu {
@@ -146,6 +148,7 @@
   z-index: 0;
   object-fit: cover;
   filter: brightness(0.7);
+  aspect-ratio: 16 / 9;
 }
 
 .hero::before {
@@ -472,6 +475,8 @@
   border-radius: 15px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   transition: transform 0.3s;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .about-image img:hover {
@@ -566,8 +571,8 @@
 .gallery-item {
   overflow: hidden;
   border-radius: 15px;
-  height: 250px;
   position: relative;
+  aspect-ratio: 4 / 3;
 }
 
 .gallery-item::after {
@@ -687,6 +692,7 @@
   border: 4px solid var(--white);
   box-shadow: 0 5px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s;
+  aspect-ratio: 1 / 1;
 }
 
 .team-card:hover .team-avatar img {
@@ -957,6 +963,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--primary-color);
+  aspect-ratio: 1 / 1;
 }
 
 .testimonial-author h4 {
@@ -965,8 +972,7 @@
 }
 
 .testimonial-author p {
-  color: var(--primary-color);
-  font-size: 0.9rem;
+  display: none;
 }
 
 .slider-dots {
@@ -1001,53 +1007,27 @@
   gap: 3rem;
 }
 
+.contact-map {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .contact-left {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-}
-
-/* Contact Grid Layout */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9rem;
-  margin-bottom: 2rem;
-}
-
-/* Info Box Cards */
-.info-box {
-  display: flex;
-  gap: 0.6rem;
-  padding: 0.6rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #f0f1f3 100%);
-  border-radius: 6px;
-  border-left: 3px solid var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-.info-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.info-box i {
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  min-width: 24px;
-}
-
-.info-content h4 {
-  font-size: 0.75rem;
-  color: var(--secondary-color);
-  font-weight: 600;
-  margin: 0 0 0.2rem 0;
-}
-
-.info-content p {
-  font-size: 0.7rem;
-  color: #555;
-  margin: 0;
 }
 
 .contact-form {
@@ -1112,8 +1092,14 @@
 .contact-map iframe {
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 200px;
+  max-height: 300px;
   border: none;
+  aspect-ratio: 16 / 9;
+}
+
+.contact-map {
+  margin-bottom:5rem;
 }
 
 /* Footer */
@@ -1353,12 +1339,65 @@
   }
 
   .contact-map iframe {
-    min-height: 300px;
+    min-height: 250px;
+  }
+  
+  .contact-info-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    grid-auto-rows: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .info-card {
+    min-height: 130px;
+  }
+  
+  .info-card p {
+    font-size: 0.7rem;
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    text-align: left;
+  }
+  
+  .footer-section {
+    width: 100%;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.9rem;
+  }
+  
+  .timing-wrapper {
+    min-width: auto !important;
+    display: flex !important;
+  }
+  
+  .timing-slots span {
+    white-space: normal;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .newsletter-form input {
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .newsletter-form button {
+    border-radius: 5px;
+    width: 100%;
   }
 }
 
@@ -1549,50 +1588,6 @@
   display: inline-block;
 }
 
-.trainer-card {
-  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-}
-
-.trainer-card h3 {
-  font-size: 1.3rem;
-  color: var(--primary-color);
-}
-
-/* Trainer Add-on */
-.trainer-addon {
-  background: linear-gradient(135deg, #fff3e6 0%, #ffe6cc 100%);
-  padding: 0.8rem;
-  border-radius: 10px;
-  margin: 1rem 0;
-  border: 1px dashed var(--primary-color);
-}
-
-.addon-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--secondary-color);
-  margin-bottom: 0.5rem;
-}
-
-.addon-price {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.addon-original {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 0.9rem;
-}
-
-.addon-discounted {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
 /* Trainer Card Dark Theme */
 .trainer-card {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
@@ -1627,53 +1622,18 @@
   border-color: var(--primary-color);
 }
 
-/* Footer Timing Styles */
-.timing-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
 
-.timing-label {
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 0.2rem;
-}
-
-.timing-slot {
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.timing-slot i {
-  color: var(--primary-color);
-  font-size: 0.85rem;
-}
-
-/* Prevent timing text wrap */
-.timing-slot {
-  white-space: nowrap;
-}
-
-/* Timing Header Alignment */
-.timing-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.2rem;
-}
-
-/* Professional Timing Layout */
 .timing-wrapper {
-  display: flex;
+  display: inline-flex !important;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 200px;
 }
 
 .timing-wrapper strong {
   color: var(--primary-color);
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .timing-slots {
@@ -1696,65 +1656,64 @@
   font-size: 0.85rem;
 }
 
-/* Footer Contact Section Width Fix */
+/* Footer Contact Section */
 .footer-content {
-  grid-template-columns: 2fr 1fr 1.8fr 1.5fr !important;
+  grid-template-columns: 2fr 1fr 1.8fr 1.5fr;
 }
 
 .footer-section ul li {
   line-height: 1.8;
 }
 
-/* Fix Opening Hours Wrapping */
-.timing-wrapper {
-  display: inline-flex !important;
-  flex-direction: column;
-  gap: 0.4rem;
-  min-width: 200px;
-}
-
-.timing-wrapper strong {
-  white-space: nowrap;
-}
-
-/* Contact Info Boxes Same Size */
-.contact-grid {
+/* Contact Info Row */
+.contact-info-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
   margin-bottom: 2rem;
   grid-auto-rows: 1fr;
 }
 
-.info-box {
-  display: flex;
-  gap: 0.6rem;
+.info-card {
+  background: var(--white);
   padding: 0.8rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #f0f1f3 100%);
-  border-radius: 6px;
-  border-left: 3px solid var(--primary-color);
-  transition: all 0.3s ease;
-  min-height: 80px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+  border-top: 3px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 120px;
 }
 
-.info-content p i {
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.15);
+}
+
+.info-card i {
+  font-size: 1.3rem;
   color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
   font-size: 0.7rem;
-  margin-right: 0.3rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  flex-shrink: 0;
 }
 
-.info-content p {
-  font-size: 0.7rem;
-  margin: 0.2rem 0;
-}
-
-/* Contact Info Box Paragraph Size */
-.info-content p {
-  font-size: 0.85rem !important;
-  margin: 0.2rem 0;
-}
-
-/* Remove testimonial role styling */
-.testimonial-author p {
-  display: none;
+.info-card p {
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+  margin: 0.05rem 0;
+  font-weight: 600;
+  line-height: 1.4;
 }

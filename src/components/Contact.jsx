@@ -81,39 +81,31 @@ const Contact = () => {
           <h2>Contact Us</h2>
           <div className="title-underline"></div>
         </div>
+        <div className="contact-info-row">
+          <div className="info-card">
+            <i className="fas fa-map-marker-alt"></i>
+            <h4>Address</h4>
+            <p>Nakain Chauraha, Near Primary School Varanasi</p>
+          </div>
+          <div className="info-card">
+            <i className="fas fa-phone"></i>
+            <h4>Phone</h4>
+            <p>+91 8303201744</p>
+          </div>
+          <div className="info-card">
+            <i className="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p>flexfitnessvns@gmail.com</p>
+          </div>
+          <div className="info-card">
+            <i className="fas fa-clock"></i>
+            <h4>Hours</h4>
+            <p>Morning: 5:00-9:30 AM</p>
+            <p>Evening: 4:30-9:30 PM</p>
+          </div>
+        </div>
         <div className="contact-content">
           <div className="contact-left">
-            <div className="contact-grid">
-              <div className="info-box">
-                <i className="fas fa-map-marker-alt"></i>
-                <div className="info-content">
-                  <h4>Address</h4>
-                  <p>Nakain Chauraha, Near Primary School Varanasi</p>
-                </div>
-              </div>
-              <div className="info-box">
-                <i className="fas fa-phone"></i>
-                <div className="info-content">
-                  <h4>Phone</h4>
-                  <p>+91 8303201744</p>
-                </div>
-              </div>
-              <div className="info-box">
-                <i className="fas fa-envelope"></i>
-                <div className="info-content">
-                  <h4>Email</h4>
-                  <p>flexfitnessvns@gmail.com</p>
-                </div>
-              </div>
-              <div className="info-box">
-                <i className="fas fa-clock"></i>
-                <div className="info-content">
-                  <h4>Hours</h4>
-                  <p><i className="fas fa-sun"></i> Morning: 5:00-9:30 AM</p>
-                  <p><i className="fas fa-moon"></i> Evening: 4:30-9:30 PM</p>
-                </div>
-              </div>
-            </div>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <i className="fas fa-user"></i>
@@ -156,10 +148,12 @@ const Contact = () => {
           </div>
           <div className="contact-map">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!4v1771483609225!6m8!1m7!1sI7Gq6UatoGduG38lmevrMw!2m2!1d25.27683865325454!2d82.93467628256006!3f175.45464104612688!4f-7.933781143871457!5f0.7820865974627469" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5!2d82.9346!3d25.2768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE2JzM2LjYiTiA4MsKwNTYnMDQuOCJF!5e0!3m2!1sen!2sin!4v1234567890" 
               allowFullScreen="" 
               loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade">
+              referrerPolicy="no-referrer-when-downgrade"
+              allow=""
+              title="Flex Fitness Gym Location">
             </iframe>
           </div>
         </div>
