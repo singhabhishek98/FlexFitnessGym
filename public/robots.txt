@@ -2,17 +2,13 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
 
-# Sitemap location
-Sitemap: https://flexfitnessgym.netlify.app/sitemap.xml
+Sitemap: https://flexfitnessvns.netlify.app/sitemap.xml
 
-# Crawl-delay for polite crawling
 Crawl-delay: 10
 
-# Allow all major search engines
 User-agent: Googlebot
 Allow: /
 
