@@ -7,7 +7,13 @@ Professional gym landing page with membership plans and online payment integrati
 - **Modern Design**: Clean, professional, and mobile-responsive
 - **Membership Plans**: 3 pricing tiers with detailed features
 - **Online Payment**: Razorpay integration for seamless payments
-- **SEO Optimized**: Meta tags for better search engine visibility
+- **Advanced SEO**: Complete optimization for top search rankings
+  - Schema.org structured data (LocalBusiness + Organization)
+  - Open Graph & Twitter Cards
+  - XML Sitemap & Robots.txt
+  - PWA Manifest
+  - Geo tags for local SEO
+  - Security headers
 - **WhatsApp Integration**: Direct contact via WhatsApp
 - **Smooth Animations**: Professional transitions and effects
 - **Contact Form**: Easy inquiry submission
@@ -46,7 +52,14 @@ key: 'rzp_test_YOUR_KEY_HERE'
 npm run dev
 ```
 
-### 4. Build for Production
+### 4. SEO Setup (Important!)
+- Open `SEO_SETUP_GUIDE.md` for detailed instructions
+- Add Google Search Console verification code
+- Add Bing Webmaster verification code
+- Update social media links in `index.html`
+- Submit sitemap to search engines
+
+### 5. Build for Production
 ```bash
 npm run build
 ```
@@ -70,11 +83,12 @@ The website uses Razorpay for secure online payments. When users click "Join Now
 - **Colors**: Change CSS variables in `src/App.css`
 
 ### SEO Settings
-Update meta tags in `index.html`:
-- Title
-- Description
-- Keywords
-- Open Graph tags
+See `SEO_SETUP_GUIDE.md` for complete setup:
+- Google & Bing verification
+- Sitemap submission
+- Schema.org structured data
+- Local SEO optimization
+- Social media integration
 
 ## Mobile Responsive ✅
 
@@ -90,6 +104,23 @@ Fully optimized for:
 - Font Awesome Icons
 - Google Fonts (Poppins)
 - Razorpay Payment Gateway
+- Schema.org Structured Data
+- PWA Support
+
+## SEO Features 🔍
+
+- ✅ Complete meta tags optimization
+- ✅ Schema.org LocalBusiness markup
+- ✅ Open Graph & Twitter Cards
+- ✅ XML Sitemap (sitemap.xml)
+- ✅ Robots.txt for crawlers
+- ✅ PWA Manifest (site.webmanifest)
+- ✅ Geo tags for local search
+- ✅ Security & performance headers
+- ✅ Canonical URLs
+- ✅ Structured data for pricing
+
+**For detailed SEO setup, see `SEO_SETUP_GUIDE.md`**
 
 ## Contact 📞
 
