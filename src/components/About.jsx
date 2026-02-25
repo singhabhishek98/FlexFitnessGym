@@ -27,7 +27,7 @@ const About = () => {
             </div>
           </div>
           <div className="about-image">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600" alt="Gym" />
+            <img src="/images/new.png" alt="Gym" />
           </div>
         </div>
       </div>
