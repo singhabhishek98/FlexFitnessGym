@@ -22,11 +22,10 @@ const Hero = () => {
         <source src="/images/vid.mp4" type="video/mp4" />
       </video>
       <div className="hero-content">
-        <h1>TRANSFORM YOUR BODY</h1>
-        <p>Build Strength, Gain Confidence, Live Better</p>
+        <h1>𝐅𝐥𝐞𝐱 | 𝐅𝐢𝐭𝐧𝐞𝐬𝐬 | 𝐆𝐲𝐦</h1>
+        <p className="hero-slogan">The Revolution is Coming</p>
         <span className="hero-badge">For Men & Women</span>
         <div className="hero-cta">
-          <button onClick={() => scrollToSection('pricing')} className="btn-primary">View Membership Plans</button>
           <button onClick={() => scrollToSection('contact')} className="btn-secondary">Book Free Trial</button>
         </div>
       </div>
