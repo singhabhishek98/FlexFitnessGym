@@ -13,9 +13,9 @@ const Contact = () => {
     toast.className = `toast-notification ${type}`
     toast.textContent = message
     document.body.appendChild(toast)
-    
+
     setTimeout(() => toast.classList.add('show'), 100)
-    
+
     setTimeout(() => {
       toast.classList.remove('show')
       setTimeout(() => document.body.removeChild(toast), 300)
@@ -28,39 +28,39 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     const formData = new FormData(e.target)
     const name = formData.get('name').trim()
     const email = formData.get('email').trim()
     const mobile = formData.get('mobile').trim()
     const message = formData.get('message').trim()
-    
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    
+
     if (!name) {
       showToast('Please enter your name', 'warning')
       return
     }
-    
+
     if (!email || !emailPattern.test(email)) {
       showToast('Please enter a valid email', 'warning')
       return
     }
-    
+
     if (!mobile || mobile.length !== 10 || !/^[0-9]{10}$/.test(mobile)) {
       showToast('Please enter a valid 10-digit mobile number', 'warning')
       return
     }
-    
+
     setIsSubmitting(true)
-    
+
     const templateParams = {
       name: name,
       email: email,
       phone: mobile,
       message: message || 'No message provided'
     }
-    
+
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
       showToast('Message sent successfully! 🚀', 'success')
@@ -117,22 +117,22 @@ const Contact = () => {
               </div>
               <div className="form-group">
                 <i className="fas fa-phone"></i>
-                <input 
-                  type="tel" 
-                  name="mobile" 
-                  placeholder="Mobile Number (10 digits)" 
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Mobile Number (10 digits)"
                   maxLength="10"
                   pattern="[0-9]{10}"
                   title="Mobile no. should be numbers only"
                   onInput={handleMobileInput}
-                  required 
+                  required
                 />
               </div>
               <div className="form-group">
                 <i className="fas fa-comment"></i>
-                <textarea 
-                  name="message" 
-                  placeholder="Message (Optional)" 
+                <textarea
+                  name="message"
+                  placeholder="Message (Optional)"
                   rows="3"
                   maxLength="400"
                   onChange={(e) => setCharCount(e.target.value.length)}
@@ -147,12 +147,11 @@ const Contact = () => {
             </form>
           </div>
           <div className="contact-map">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5!2d82.9346!3d25.2768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE2JzM2LjYiTiA4MsKwNTYnMDQuOCJF!5e0!3m2!1sen!2sin!4v1234567890" 
-              allowFullScreen="" 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps?q=25.27683865325454,82.93467628256006&z=18&output=embed"
+              allowFullScreen=""
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              allow=""
               title="Flex Fitness Gym Location">
             </iframe>
           </div>
