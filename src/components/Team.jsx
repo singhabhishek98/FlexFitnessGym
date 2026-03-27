@@ -1,13 +1,13 @@
 const Team = () => {
   const team = [
-    { img: 'images/shiv.png', name: 'ShivMangal', role: 'Head Trainer' },
-    { img: 'images/Awanish.png', name: 'Awanish Singh', role: 'Head Trainer' },
+    { img: '/images/shiv.png', name: 'Shiv Mangal', role: 'Head Trainer' },
+    { img: '/images/Awanish.png', name: 'Awanish Singh', role: 'Head Trainer' },
     // { img: '', name: 'David Martinez', role: 'CrossFit Coach' },
     // { img: '', name: 'Emily Chen', role: 'Nutritionist' }
   ]
 
   return (
-    <section id="team" className="team">
+    <section id="team" className="team reveal">
       <div className="container">
         <div className="section-title">
           <h2>Our Team</h2>

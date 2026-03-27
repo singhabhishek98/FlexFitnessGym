@@ -29,6 +29,13 @@ const Hero = () => {
           <button onClick={() => scrollToSection('contact')} className="btn-secondary">Book Free Trial</button>
         </div>
       </div>
+      <button
+        className="hero-scroll-down"
+        onClick={() => scrollToSection('about')}
+        aria-label="Scroll down to About"
+      >
+        <i className="fas fa-chevron-down"></i>
+      </button>
     </section>
   )
 }
