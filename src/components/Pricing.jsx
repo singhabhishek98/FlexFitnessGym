@@ -66,19 +66,21 @@ const Pricing = () => {
   }
 
   return (
-    <section id="pricing" className="pricing">
+    <section id="pricing" className="pricing reveal">
       <div className="container">
         <div className="section-title">
           <h2>Membership Plans</h2>
           <div className="title-underline"></div>
           <p className="section-subtitle">Choose the perfect plan for your fitness journey</p>
         </div>
+        <div className="pricing-group-label">
+          <span><i className="fas fa-dumbbell"></i> Gym Membership</span>
+        </div>
         <div className="pricing-grid">
-          {allPlans.map((plan, index) => (
-            <div key={index} className={`pricing-card ${plan.isTrainer ? 'trainer-card' : ''}`}>
+          {allPlans.slice(0, 4).map((plan, index) => (
+            <div key={index} className={`pricing-card ${plan.badge ? 'popular' : ''}`}>
               {plan.badge && <div className="popular-badge">{plan.badge}</div>}
               <h3>{plan.name}</h3>
-              {plan.subtitle && <p style={{color: 'var(--primary-color)', fontWeight: 600, marginBottom: '1rem'}}>{plan.subtitle}</p>}
               <div className="price">
                 {plan.originalPrice && (
                   <div className="original-price">₹{plan.originalPrice}</div>
@@ -88,7 +90,7 @@ const Pricing = () => {
                   <span className="amount">{plan.price}</span>
                 </div>
                 {plan.discount && (
-                  <div className="discount-badge">DISCOUNT ₹{plan.discount}</div>
+                  <div className="discount-badge">SAVE ₹{plan.discount}</div>
                 )}
               </div>
               {plan.features && (
@@ -98,9 +100,29 @@ const Pricing = () => {
                   ))}
                 </ul>
               )}
-              <button className="btn-primary" onClick={handleJoinClick}>
-                {plan.isTrainer ? 'Book Now' : 'Join Now'}
-              </button>
+              <button className="btn-primary" onClick={handleJoinClick}>Join Now</button>
+            </div>
+          ))}
+        </div>
+
+        <div className="pricing-group-label" style={{marginTop: '3rem'}}>
+          <span><i className="fas fa-user-tie"></i> Personal Trainer Plans</span>
+        </div>
+        <div className="pricing-grid">
+          {allPlans.slice(4).map((plan, index) => (
+            <div key={index} className="pricing-card trainer-card">
+              <h3>{plan.name}</h3>
+              <p className="plan-subtitle">{plan.subtitle}</p>
+              <div className="price">
+                {plan.originalPrice && (
+                  <div className="original-price">₹{plan.originalPrice}</div>
+                )}
+                <div>
+                  <span className="currency">₹</span>
+                  <span className="amount">{plan.price}</span>
+                </div>
+              </div>
+              <button className="btn-primary" onClick={handleJoinClick}>Book Now</button>
             </div>
           ))}
         </div>

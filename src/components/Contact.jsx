@@ -75,7 +75,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact reveal">
       <div className="container">
         <div className="section-title">
           <h2>Contact Us</h2>
@@ -137,7 +137,7 @@ const Contact = () => {
                   maxLength="400"
                   onChange={(e) => setCharCount(e.target.value.length)}
                 ></textarea>
-                <span className="char-counter">{charCount} / 500</span>
+                <span className="char-counter">{charCount} / 400</span>
               </div>
               <div className="button-wrapper">
                 <button type="submit" className="btn-primary" disabled={isSubmitting}>

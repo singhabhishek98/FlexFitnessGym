@@ -21,7 +21,7 @@ const Header = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo" onClick={() => window.location.href = 'https://flexfitnessvns.netlify.app'} style={{ cursor: 'pointer' }}>
-          <img src="/images/logo.png" alt="Flex Fitness" className="logo-img" />
+          <img src="/images/logo.png" alt="Flex Fitness Gym - Best Gym in Varanasi" className="logo-img" />
         </div>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li><a onClick={() => scrollToSection('home')}>Home</a></li>
@@ -31,7 +31,7 @@ const Header = () => {
           <li><a onClick={() => scrollToSection('team')}>Team</a></li>
           <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
         </ul>
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
           <span></span>
           <span></span>
           <span></span>

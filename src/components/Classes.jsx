@@ -9,7 +9,7 @@ const Classes = () => {
   ]
 
   return (
-    <section id="classes" className="classes">
+    <section id="classes" className="classes reveal">
       <div className="container">
         <div className="section-title">
           <h2>Our Classes</h2>
