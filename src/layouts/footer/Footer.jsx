@@ -1,16 +1,37 @@
+import { Button, Input, message } from 'antd'
+import { SendOutlined } from '@ant-design/icons'
+
 const Footer = () => {
+  const [messageApi, contextHolder] = message.useMessage()
+  const socialLinks = [
+    {
+      href: 'https://www.facebook.com/',
+      icon: 'fab fa-facebook-f',
+      label: 'Facebook',
+      platform: 'facebook'
+    },
+    {
+      href: 'https://www.instagram.com/flex_fitness26?igsh=MXZjOXA2cWNudmJqdA==',
+      icon: 'fab fa-instagram',
+      label: 'Instagram',
+      platform: 'instagram'
+    },
+    {
+      href: 'https://x.com/',
+      icon: 'fa-brands fa-x-twitter',
+      label: 'X',
+      platform: 'x'
+    },
+    {
+      href: 'https://www.youtube.com/',
+      icon: 'fab fa-youtube',
+      label: 'YouTube',
+      platform: 'youtube'
+    }
+  ]
+
   const showToast = (message, type = 'success') => {
-    const toast = document.createElement('div')
-    toast.className = `toast-notification ${type}`
-    toast.textContent = message
-    document.body.appendChild(toast)
-    
-    setTimeout(() => toast.classList.add('show'), 100)
-    
-    setTimeout(() => {
-      toast.classList.remove('show')
-      setTimeout(() => document.body.removeChild(toast), 300)
-    }, 3000)
+    messageApi.open({ type, content: message })
   }
 
   const handleNewsletterSubmit = (e) => {
@@ -24,6 +45,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+      {contextHolder}
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
@@ -34,10 +56,18 @@ const Footer = () => {
             </div>
             <p>Transform your body and mind with our expert trainers and state-of-the-art facilities.</p>
             <div className="social-links">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/flex_fitness26?igsh=MXZjOXA2cWNudmJqdA=="><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-x-twitter"></i></a>
-              <a href="#"><i className="fab fa-youtube"></i></a>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className={`social-link ${social.platform}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit our ${social.label}`}
+                >
+                  <i className={social.icon}></i>
+                </a>
+              ))}
             </div>
           </div>
           <div className="footer-section">
@@ -71,8 +101,8 @@ const Footer = () => {
             <h3>Newsletter</h3>
             <p>Subscribe to get updates on our latest offers</p>
             <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
-              <input type="email" name="email" placeholder="Your Email" required />
-              <button type="submit"><i className="fas fa-paper-plane"></i></button>
+              <Input size="large" type="email" name="email" placeholder="Your Email" required />
+              <Button htmlType="submit" type="primary" size="large" icon={<SendOutlined />} />
             </form>
           </div>
         </div>

@@ -74,11 +74,14 @@ const Testimonials = () => {
           </div>
           <div className="slider-dots">
             {testimonials.map((_, index) => (
-              <span
+              <button
+                type="button"
                 key={index}
                 className={`dot ${current === index ? 'active' : ''}`}
                 onClick={() => goToSlide(index)}
-              ></span>
+                aria-label={`Show testimonial ${index + 1}`}
+                aria-pressed={current === index}
+              ></button>
             ))}
           </div>
         </div>

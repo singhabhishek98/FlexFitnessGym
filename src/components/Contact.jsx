@@ -1,71 +1,40 @@
 import { useState } from 'react'
+import { Button, Card, Form, Input, message } from 'antd'
+import { ClockCircleOutlined, EnvironmentOutlined, MailOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons'
 
 const Contact = () => {
-  const [charCount, setCharCount] = useState(0)
+  const [form] = Form.useForm()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [messageApi, contextHolder] = message.useMessage()
+  const messageValue = Form.useWatch('message', form) ?? ''
 
   const SERVICE_ID = 'service_o1z96gk'
   const TEMPLATE_ID = 'template_ks7pr8c'
   const USER_ID = 'ACuF9_QQm5gpbNA0N'
 
-  const showToast = (message, type = 'success') => {
-    const toast = document.createElement('div')
-    toast.className = `toast-notification ${type}`
-    toast.textContent = message
-    document.body.appendChild(toast)
-
-    setTimeout(() => toast.classList.add('show'), 100)
-
-    setTimeout(() => {
-      toast.classList.remove('show')
-      setTimeout(() => document.body.removeChild(toast), 300)
-    }, 3000)
+  const showToast = (content, type = 'success') => {
+    messageApi.open({ type, content })
   }
 
   const handleMobileInput = (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10)
+    const nextValue = e.target.value.replace(/[^0-9]/g, '').slice(0, 10)
+    form.setFieldValue('mobile', nextValue)
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.target)
-    const name = formData.get('name').trim()
-    const email = formData.get('email').trim()
-    const mobile = formData.get('mobile').trim()
-    const message = formData.get('message').trim()
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-    if (!name) {
-      showToast('Please enter your name', 'warning')
-      return
-    }
-
-    if (!email || !emailPattern.test(email)) {
-      showToast('Please enter a valid email', 'warning')
-      return
-    }
-
-    if (!mobile || mobile.length !== 10 || !/^[0-9]{10}$/.test(mobile)) {
-      showToast('Please enter a valid 10-digit mobile number', 'warning')
-      return
-    }
-
+  const handleSubmit = async (values) => {
     setIsSubmitting(true)
 
     const templateParams = {
-      name: name,
-      email: email,
-      phone: mobile,
-      message: message || 'No message provided'
+      name: values.name.trim(),
+      email: values.email.trim(),
+      phone: values.mobile.trim(),
+      message: values.message?.trim() || 'No message provided'
     }
 
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
       showToast('Message sent successfully! 🚀', 'success')
-      e.target.reset()
-      setCharCount(0)
+      form.resetFields()
     } catch (error) {
       console.error('Failed to send email:', error)
       showToast('Failed to send message. Please try again.', 'error')
@@ -76,84 +45,110 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact reveal">
+      {contextHolder}
       <div className="container">
         <div className="section-title">
           <h2>Contact Us</h2>
           <div className="title-underline"></div>
         </div>
         <div className="contact-info-row">
-          <div className="info-card">
-            <i className="fas fa-map-marker-alt"></i>
+          <Card className="info-card" bordered={false}>
+            <EnvironmentOutlined className="info-card-icon" />
             <h4>Address</h4>
             <p>Nakain Chauraha, Near Primary School Varanasi</p>
-          </div>
-          <div className="info-card">
-            <i className="fas fa-phone"></i>
+          </Card>
+          <Card className="info-card" bordered={false}>
+            <PhoneOutlined className="info-card-icon" />
             <h4>Phone</h4>
             <p>+91 8303201744</p>
-          </div>
-          <div className="info-card">
-            <i className="fas fa-envelope"></i>
+          </Card>
+          <Card className="info-card" bordered={false}>
+            <MailOutlined className="info-card-icon" />
             <h4>Email</h4>
             <p>flexfitnessvns@gmail.com</p>
-          </div>
-          <div className="info-card">
-            <i className="fas fa-clock"></i>
+          </Card>
+          <Card className="info-card" bordered={false}>
+            <ClockCircleOutlined className="info-card-icon" />
             <h4>Hours</h4>
             <p>Morning: 5:00-9:30 AM</p>
             <p>Evening: 4:30-9:30 PM</p>
-          </div>
+          </Card>
         </div>
         <div className="contact-content">
           <div className="contact-left">
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <i className="fas fa-user"></i>
-                <input type="text" name="name" placeholder="Your Name" required />
-              </div>
-              <div className="form-group">
-                <i className="fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Your Email" required />
-              </div>
-              <div className="form-group">
-                <i className="fas fa-phone"></i>
-                <input
-                  type="tel"
+            <Card className="contact-form-card" bordered={false}>
+              <Form
+                form={form}
+                layout="vertical"
+                className="contact-form antd-contact-form"
+                onFinish={handleSubmit}
+                requiredMark={false}
+              >
+                <Form.Item
+                  name="name"
+                  rules={[{ required: true, message: 'Please enter your name' }]}
+                >
+                  <Input size="large" prefix={<UserOutlined />} placeholder="Your Name" />
+                </Form.Item>
+                <Form.Item
+                  name="email"
+                  rules={[
+                    { required: true, message: 'Please enter your email' },
+                    { type: 'email', message: 'Please enter a valid email' },
+                  ]}
+                >
+                  <Input size="large" prefix={<MailOutlined />} placeholder="Your Email" />
+                </Form.Item>
+                <Form.Item
                   name="mobile"
-                  placeholder="Mobile Number (10 digits)"
-                  maxLength="10"
-                  pattern="[0-9]{10}"
-                  title="Mobile no. should be numbers only"
-                  onInput={handleMobileInput}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <i className="fas fa-comment"></i>
-                <textarea
-                  name="message"
-                  placeholder="Message (Optional)"
-                  rows="3"
-                  maxLength="400"
-                  onChange={(e) => setCharCount(e.target.value.length)}
-                ></textarea>
-                <span className="char-counter">{charCount} / 400</span>
-              </div>
-              <div className="button-wrapper">
-                <button type="submit" className="btn-primary" disabled={isSubmitting}>
-                  <i className="fas fa-paper-plane"></i> {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </div>
-            </form>
+                  rules={[
+                    { required: true, message: 'Please enter your mobile number' },
+                    { pattern: /^[0-9]{10}$/, message: 'Please enter a valid 10-digit mobile number' },
+                  ]}
+                >
+                  <Input
+                    size="large"
+                    prefix={<PhoneOutlined />}
+                    placeholder="Mobile Number (10 digits)"
+                    maxLength={10}
+                    onInput={handleMobileInput}
+                  />
+                </Form.Item>
+                <Form.Item name="message" className="contact-message-item">
+                  <Input.TextArea
+                    rows={2}
+                    maxLength={400}
+                    className="contact-message-input"
+                    placeholder="Message (Optional)"
+                  />
+                </Form.Item>
+                <div className="contact-message-count">{messageValue.length} / 400</div>
+                <div className="button-wrapper">
+                  <Button
+                    htmlType="submit"
+                    type="primary"
+                    size="large"
+                    className="btn-primary ant-gym-btn"
+                    loading={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </div>
+              </Form>
+            </Card>
           </div>
-          <div className="contact-map">
-            <iframe
-              src="https://www.google.com/maps?q=25.27683865325454,82.93467628256006&z=18&output=embed"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Flex Fitness Gym Location">
-            </iframe>
+          <div className="contact-map-wrap">
+            <Card className="contact-map-card" bordered={false}>
+              <div className="contact-map">
+                <iframe
+                  src="https://www.google.com/maps?q=25.27683865325454,82.93467628256006&z=18&output=embed"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Flex Fitness Gym Location">
+                </iframe>
+              </div>
+            </Card>
           </div>
         </div>
       </div>

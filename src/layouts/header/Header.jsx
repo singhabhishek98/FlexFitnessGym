@@ -20,22 +20,33 @@ const Header = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <div className="logo" onClick={() => window.location.href = 'https://flexfitnessvns.netlify.app'} style={{ cursor: 'pointer' }}>
+        <button
+          type="button"
+          className="logo logo-button"
+          onClick={() => window.location.href = 'https://flexfitnessvns.netlify.app'}
+          aria-label="Go to Flex Fitness Gym homepage"
+        >
           <img src="/images/logo.png" alt="Flex Fitness Gym - Best Gym in Varanasi" className="logo-img" />
-        </div>
+        </button>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <li><a onClick={() => scrollToSection('home')}>Home</a></li>
-          <li><a onClick={() => scrollToSection('about')}>About</a></li>
-          <li><a onClick={() => scrollToSection('services')}>Services</a></li>
-          <li><a onClick={() => scrollToSection('pricing')}>Pricing</a></li>
-          <li><a onClick={() => scrollToSection('team')}>Team</a></li>
-          <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('home')}>Home</button></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('about')}>About</button></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('services')}>Services</button></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('pricing')}>Pricing</button></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('team')}>Team</button></li>
+          <li><button type="button" className="nav-link" onClick={() => scrollToSection('contact')}>Contact</button></li>
         </ul>
-        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+        <button
+          type="button"
+          className={`hamburger ${isOpen ? 'active' : ''}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isOpen}
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
   )

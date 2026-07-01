@@ -1,9 +1,7 @@
 const Team = () => {
   const team = [
-    { img: '/images/shiv.png', name: 'Shiv Mangal', role: 'Head Trainer' },
-    { img: '/images/Awanish.png', name: 'Awanish Singh', role: 'Head Trainer' },
-    // { img: '', name: 'David Martinez', role: 'CrossFit Coach' },
-    // { img: '', name: 'Emily Chen', role: 'Nutritionist' }
+    { img: '/images/shiv.png', name: 'Shiv Mangal', role: 'Head Trainer', socials: [] },
+    { img: '/images/Awanish.png', name: 'Awanish Singh', role: 'Head Trainer', socials: [] },
   ]
 
   return (
@@ -22,12 +20,22 @@ const Team = () => {
               </div>
               <h3>{member.name}</h3>
               <p className="team-role">{member.role}</p>
-              <div className="team-social">
-                <a href="#"><i className="fab fa-facebook-f"></i></a>
-                <a href="#"><i className="fab fa-instagram"></i></a>
-                <a href="#"><i className="fab fa-x-twitter"></i></a>
-                <a href="#"><i className="fab fa-linkedin"></i></a>
-              </div>
+              {member.socials.length > 0 && (
+                <div className="team-social">
+                  {member.socials.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      className={`social-link ${social.platform}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name} on ${social.label}`}
+                    >
+                      <i className={social.icon}></i>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
