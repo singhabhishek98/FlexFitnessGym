@@ -15,10 +15,14 @@ const Services = () => {
         </div>
         <div className="services-grid">
           {services.map((item, index) => (
-            <div key={index} className="service-card">
-              <i className={`fas ${item.icon}`}></i>
+            <div key={index} className="service-card depth-card" data-tilt data-tilt-strength="7">
+              <span className="service-card-number">0{index + 1}</span>
+              <span className="service-card-icon">
+                <i className={`fas ${item.icon}`}></i>
+              </span>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
+              <span className="service-card-edge" aria-hidden="true"></span>
             </div>
           ))}
         </div>

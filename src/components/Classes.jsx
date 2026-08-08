@@ -17,8 +17,14 @@ const Classes = () => {
         </div>
         <div className="classes-grid">
           {classes.map((item, index) => (
-            <div key={index} className="class-card">
-              <i className={`fas ${item.icon}`}></i>
+            <div key={index} className="class-card depth-card" data-tilt data-tilt-strength="6">
+              <div className="class-card-topline">
+                <span>0{index + 1}</span>
+                <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </div>
+              <span className="class-card-icon">
+                <i className={`fas ${item.icon}`}></i>
+              </span>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </div>

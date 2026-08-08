@@ -13,13 +13,15 @@ const Team = () => {
         </div>
         <div className="team-grid">
           {team.map((member, index) => (
-            <div key={index} className="team-card">
+            <div key={index} className="team-card depth-card" data-tilt data-tilt-strength="6">
+              <span className="team-card-index">Coach 0{index + 1}</span>
               <div className="team-avatar">
                 <img src={member.img} alt={member.name} />
                 <div className="avatar-ring"></div>
               </div>
               <h3>{member.name}</h3>
               <p className="team-role">{member.role}</p>
+              <div className="team-specialty"><i className="fa-solid fa-medal" aria-hidden="true"></i> Certified Fitness Coach</div>
               {member.socials.length > 0 && (
                 <div className="team-social">
                   {member.socials.map((social) => (

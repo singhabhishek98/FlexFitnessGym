@@ -21,12 +21,30 @@ const Hero = () => {
         <source src="https://res.cloudinary.com/dntkqvsky/video/upload/q_auto,f_auto/v1771962123/vid_oz1jwy.mp4" type="video/mp4" />
         <source src="/images/vid.mp4" type="video/mp4" />
       </video>
-      <div className="hero-content">
-        <h1>𝐅𝐥𝐞𝐱 | 𝐅𝐢𝐭𝐧𝐞𝐬𝐬 | 𝐆𝐲𝐦</h1>
+      <div className="hero-depth-scene" aria-hidden="true">
+        <span className="hero-depth-orbit hero-depth-orbit--one"></span>
+        <span className="hero-depth-orbit hero-depth-orbit--two"></span>
+        <span className="hero-depth-beam"></span>
+      </div>
+      <div className="hero-content" data-tilt data-tilt-strength="3">
+        <div className="hero-eyebrow">
+          <span></span>
+          Premium fitness experience
+          <span></span>
+        </div>
+        <h1><span>Flex</span> Fitness <em>Gym</em></h1>
         <p className="hero-slogan">The Revolution is Coming</p>
-        <span className="hero-badge">For Men & Women</span>
+        <span className="hero-badge"><i className="fa-solid fa-bolt" aria-hidden="true"></i> For Men & Women</span>
         <div className="hero-cta">
-          <button onClick={() => scrollToSection('contact')} className="btn-secondary">Book Free Trial</button>
+          <button onClick={() => scrollToSection('contact')} className="btn-secondary">
+            <span>Book Free Trial</span>
+            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div className="hero-proof" aria-label="Flex Fitness highlights">
+          <span><strong>150+</strong> Members</span>
+          <span><strong>5+</strong> Trainers</span>
+          <span><strong>5+</strong> Years</span>
         </div>
       </div>
       <button
