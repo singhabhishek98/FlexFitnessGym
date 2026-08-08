@@ -1,5 +1,6 @@
 import { Button, Input, message } from 'antd'
 import { SendOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const [messageApi, contextHolder] = message.useMessage()
@@ -73,10 +74,10 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#classes">Classes</a></li>
-              <li><a href="#services">Services</a></li>
+              <li><Link to="/#home">Home</Link></li>
+              <li><Link to="/#about">About Us</Link></li>
+              <li><Link to="/gallery">Gallery</Link></li>
+              <li><Link to="/pricing">Pricing</Link></li>
             </ul>
           </div>
           <div className="footer-section">

@@ -1,135 +1,163 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const AUTO_ROTATE_MS = 2300
-const SWIPE_THRESHOLD = 50
+const galleryImages = [
+  { src: '/images/gallery/1.jpg', alt: 'Flex Fitness Gym Varanasi training floor', label: 'Training Floor' },
+  { src: '/images/gallery/2.jpeg', alt: 'Flex Fitness Gym weight training equipment', label: 'Strength Zone' },
+  { src: '/images/gallery/3.jpg', alt: 'Flex Fitness Gym premium facilities', label: 'Premium Facilities' },
+  { src: '/images/gallery/4.jpg', alt: 'Flex Fitness Gym free weight workout area', label: 'Free Weights' },
+  { src: '/images/gallery/5.jpg', alt: 'Flex Fitness Gym strength training setup', label: 'Performance Setup' },
+  { src: '/images/gallery/6.jpg', alt: 'Flex Fitness Gym member workout session', label: 'Member Sessions' },
+  { src: '/images/gallery/7.jpeg', alt: 'Flex Fitness Gym premium interior view', label: 'Gym Interior' },
+  { src: '/images/gallery/8.jpeg', alt: 'Flex Fitness Gym training atmosphere', label: 'Training Atmosphere' },
+]
 
 const Gallery = () => {
-  const images = [
-    { src: '/images/gallery/1.jpg', alt: 'Flex Fitness Gym Varanasi - Training Floor' },
-    { src: '/images/gallery/2.jpeg', alt: 'Flex Fitness Gym - Weight Training Equipment' },
-    { src: '/images/gallery/3.jpg', alt: 'Flex Fitness Gym - Gym Facilities' },
-    { src: '/images/gallery/4.jpg', alt: 'Flex Fitness Gym - Free weight workout area' },
-    { src: '/images/gallery/5.jpg', alt: 'Flex Fitness Gym - Strength training setup' },
-    { src: '/images/gallery/6.jpg', alt: 'Flex Fitness Gym - Member workout session' },
-    { src: '/images/gallery/7.jpeg', alt: 'Flex Fitness Gym - Premium interior view' },
-  ]
-
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-  const touchStartXRef = useRef(0)
-
-  const totalImages = images.length
-  const prevIndex = (activeIndex - 1 + totalImages) % totalImages
-  const nextIndex = (activeIndex + 1) % totalImages
+  const [selectedIndex, setSelectedIndex] = useState(null)
+  const selectedImage = selectedIndex === null ? null : galleryImages[selectedIndex]
 
   useEffect(() => {
-    if (isPaused) {
+    if (selectedIndex === null) {
       return undefined
     }
 
-    const timer = window.setInterval(() => {
-      setActiveIndex((currentIndex) => (currentIndex + 1) % totalImages)
-    }, AUTO_ROTATE_MS)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
 
-    return () => window.clearInterval(timer)
-  }, [isPaused, totalImages])
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedIndex(null)
+      }
 
-  const goToIndex = (index) => {
-    setActiveIndex(index)
-  }
+      if (event.key === 'ArrowRight') {
+        setSelectedIndex((current) => (current + 1) % galleryImages.length)
+      }
 
-  const goNext = () => {
-    setActiveIndex((currentIndex) => (currentIndex + 1) % totalImages)
-  }
-
-  const goPrev = () => {
-    setActiveIndex((currentIndex) => (currentIndex - 1 + totalImages) % totalImages)
-  }
-
-  const handleTouchStart = (event) => {
-    touchStartXRef.current = event.touches[0]?.clientX ?? 0
-  }
-
-  const handleTouchEnd = (event) => {
-    const touchEndX = event.changedTouches[0]?.clientX ?? 0
-    const deltaX = touchEndX - touchStartXRef.current
-
-    if (Math.abs(deltaX) < SWIPE_THRESHOLD) {
-      return
+      if (event.key === 'ArrowLeft') {
+        setSelectedIndex((current) => (current - 1 + galleryImages.length) % galleryImages.length)
+      }
     }
 
-    if (deltaX < 0) {
-      goNext()
-      return
-    }
+    window.addEventListener('keydown', handleKeyDown)
 
-    goPrev()
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [selectedIndex])
+
+  const showPrevious = (event) => {
+    event.stopPropagation()
+    setSelectedIndex((current) => (current - 1 + galleryImages.length) % galleryImages.length)
   }
 
-  const visibleSlides = [
-    { index: prevIndex, position: 'left' },
-    { index: activeIndex, position: 'center' },
-    { index: nextIndex, position: 'right' },
-  ]
+  const showNext = (event) => {
+    event.stopPropagation()
+    setSelectedIndex((current) => (current + 1) % galleryImages.length)
+  }
 
   return (
     <section id="gallery" className="gallery reveal">
       <div className="container">
-        <div className="section-title">
-          <h2>Our Gallery</h2>
-          <div className="title-underline"></div>
-          <p className="section-subtitle">A glimpse of our world-class facilities</p>
+        <div className="gallery-heading-row">
+          <div className="section-title">
+            <span className="gallery-kicker"><i className="fa-solid fa-camera-retro" aria-hidden="true"></i> Inside Flex Fitness</span>
+            <h2>Gallery</h2>
+            <div className="title-underline"></div>
+            <p className="section-subtitle">Explore the space, equipment, and energy that power every workout.</p>
+          </div>
+          <div className="gallery-count" aria-label={`${galleryImages.length} gallery photographs`}>
+            <strong>{String(galleryImages.length).padStart(2, '0')}</strong>
+            <span>Real moments<br />from our gym</span>
+          </div>
         </div>
 
-        <div
-          className="gallery-carousel-shell"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div
-            className="gallery-stage"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {visibleSlides.map(({ index, position }) => {
-              const image = images[index]
-              const isCenter = position === 'center'
-
-              return (
-                <button
-                  key={`${position}-${image.src}`}
-                  type="button"
-                  className={`gallery-card gallery-card-${position}`}
-                  onClick={() => !isCenter && goToIndex(index)}
-                  aria-label={isCenter ? image.alt : `Show ${image.alt}`}
-                >
-                  <img src={image.src} alt={image.alt} loading="lazy" />
-                  <span className="gallery-slide-overlay" />
-                </button>
-              )
-            })}
-
-            <button type="button" className="gallery-nav gallery-nav-prev" onClick={goPrev} aria-label="Previous image">
-              &#8249;
-            </button>
-            <button type="button" className="gallery-nav gallery-nav-next" onClick={goNext} aria-label="Next image">
-              &#8250;
-            </button>
-          </div>
-
-          <div className="gallery-dots" aria-label="Gallery navigation">
-            {images.map((image, index) => (
-              <button
-                key={image.src}
-                type="button"
-                className={`gallery-dot ${index === activeIndex ? 'is-active' : ''}`}
-                onClick={() => goToIndex(index)}
-                aria-label={`Go to image ${index + 1}`}
+        <div className="gallery-premium-grid">
+          {galleryImages.map((image, index) => (
+            <button
+              key={image.src}
+              type="button"
+              className={`gallery-tile gallery-tile--${index + 1}`}
+              data-tilt
+              data-tilt-strength="4"
+              onClick={() => setSelectedIndex(index)}
+              aria-label={`Open ${image.label} photo`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading={index < 2 ? 'eager' : 'lazy'}
+                decoding="async"
               />
-            ))}
-          </div>
+              <span className="gallery-tile-shade" aria-hidden="true"></span>
+              <span className="gallery-tile-number">{String(index + 1).padStart(2, '0')}</span>
+              <span className="gallery-tile-caption">
+                <span>{image.label}</span>
+                <i className="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i>
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="gallery-footnote">
+          <span><i className="fa-solid fa-hand-pointer" aria-hidden="true"></i> Select any image to explore</span>
+          <span className="gallery-footnote-line" aria-hidden="true"></span>
         </div>
       </div>
+
+      {selectedImage && (
+        <div
+          className="gallery-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedImage.label} image viewer`}
+          onClick={() => setSelectedIndex(null)}
+        >
+          <div className="gallery-lightbox-glow" aria-hidden="true"></div>
+
+          <div className="gallery-lightbox-panel" onClick={(event) => event.stopPropagation()}>
+            <div className="gallery-lightbox-topbar">
+              <div>
+                <span>Flex Fitness Gallery</span>
+                <strong>{selectedImage.label}</strong>
+              </div>
+              <div className="gallery-lightbox-counter">
+                {String(selectedIndex + 1).padStart(2, '0')} <span>/ {String(galleryImages.length).padStart(2, '0')}</span>
+              </div>
+            </div>
+
+            <figure className="gallery-lightbox-figure">
+              <img src={selectedImage.src} alt={selectedImage.alt} />
+            </figure>
+
+            <button
+              type="button"
+              className="gallery-lightbox-close"
+              onClick={() => setSelectedIndex(null)}
+              aria-label="Close image viewer"
+            >
+              <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <button
+              type="button"
+              className="gallery-lightbox-control gallery-lightbox-control--previous"
+              onClick={showPrevious}
+              aria-label="Previous gallery image"
+            >
+              <i className="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+
+            <button
+              type="button"
+              className="gallery-lightbox-control gallery-lightbox-control--next"
+              onClick={showNext}
+              aria-label="Next gallery image"
+            >
+              <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

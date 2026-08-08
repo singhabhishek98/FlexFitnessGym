@@ -52,10 +52,11 @@ const Testimonials = () => {
           <div className="testimonial-wrapper" style={{ transform: `translateX(-${current * 100}%)` }}>
             {testimonials.map((item, index) => (
               <div key={index} className="testimonial-slide">
-                <div className="testimonial-card">
+                <div className="testimonial-card depth-card" data-tilt data-tilt-strength="4">
                   <div className="quote-icon">
                     <i className="fas fa-quote-left"></i>
                   </div>
+                  <div className="testimonial-verified"><i className="fa-solid fa-circle-check" aria-hidden="true"></i> Verified Member</div>
                   <p className="testimonial-text">{item.text}</p>
                   <div className="rating">
                     {[...Array(item.rating)].map((_, i) => (

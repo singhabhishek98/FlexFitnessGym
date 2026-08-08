@@ -8,6 +8,8 @@ const Pricing = () => {
   const allPlans = [
     {
       name: '1 MONTH',
+      level: 'STARTER',
+      tone: 'ember',
       originalPrice: '800',
       price: '600',
       discount: '200',
@@ -15,6 +17,8 @@ const Pricing = () => {
     },
     {
       name: '3 MONTHS',
+      level: 'MOMENTUM',
+      tone: 'sapphire',
       originalPrice: '2400',
       price: '1700',
       discount: '700',
@@ -22,6 +26,8 @@ const Pricing = () => {
     },
     {
       name: '6 MONTHS',
+      level: 'PERFORMANCE',
+      tone: 'violet',
       originalPrice: '4800',
       price: '3300',
       discount: '1500',
@@ -29,6 +35,8 @@ const Pricing = () => {
     },
     {
       name: '1 YEAR',
+      level: 'ELITE',
+      tone: 'gold',
       originalPrice: '9600',
       price: '6500',
       discount: '3100',
@@ -37,6 +45,8 @@ const Pricing = () => {
     },
     {
       name: 'TRAINER',
+      level: 'FOCUS',
+      tone: 'ember',
       subtitle: 'PER MONTH',
       originalPrice: '1500',
       price: '1000',
@@ -44,6 +54,8 @@ const Pricing = () => {
     },
     {
       name: 'TRAINER',
+      level: 'PROGRESS',
+      tone: 'sapphire',
       subtitle: 'FOR 3 MONTHS',
       originalPrice: '4500',
       price: '2500',
@@ -51,6 +63,8 @@ const Pricing = () => {
     },
     {
       name: 'TRAINER',
+      level: 'PRO',
+      tone: 'violet',
       subtitle: 'FOR 6 MONTHS',
       originalPrice: '9000',
       price: '4500',
@@ -58,6 +72,8 @@ const Pricing = () => {
     },
     {
       name: 'TRAINER',
+      level: 'MASTER',
+      tone: 'gold',
       subtitle: 'FOR 1 YEAR',
       originalPrice: '18000',
       price: '8500',
@@ -128,10 +144,20 @@ const Pricing = () => {
             {activeTab.plans.map((plan, index) => (
             <Card
               key={`${activeTab.key}-${index}`}
-              className={`pricing-card ant-pricing-card ${plan.badge ? 'popular' : ''} ${plan.isTrainer ? 'trainer-card' : ''}`}
+              className={`pricing-card ant-pricing-card depth-card plan-tone-${plan.tone} ${plan.badge ? 'popular' : ''} ${plan.isTrainer ? 'trainer-card' : ''}`}
               bordered={false}
+              data-tilt
+              data-tilt-strength="5"
             >
-              {plan.badge && <div className="popular-badge">{plan.badge}</div>}
+              <span className="popular-top-rail" aria-hidden="true"></span>
+              <span className="popular-orbits" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+              <div className="popular-badge">
+                {plan.badge ?? (plan.isTrainer ? 'PERSONAL TRAINER' : 'MEMBERSHIP')}
+              </div>
+              <div className="popular-elite-label"><span></span>{plan.level}</div>
               <h3>{plan.name}</h3>
               {plan.subtitle && <p className="plan-subtitle">{plan.subtitle}</p>}
               <div className="price">
