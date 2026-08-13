@@ -35,17 +35,6 @@ const Hero = () => {
         <h1><span>Flex</span> Fitness <em>Gym</em></h1>
         <p className="hero-slogan">The Revolution is Coming</p>
         <span className="hero-badge"><i className="fa-solid fa-bolt" aria-hidden="true"></i> For Men & Women</span>
-        <div className="hero-cta">
-          <button onClick={() => scrollToSection('contact')} className="btn-secondary">
-            <span>Book Free Trial</span>
-            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div className="hero-proof" aria-label="Flex Fitness highlights">
-          <span><strong>150+</strong> Members</span>
-          <span><strong>5+</strong> Trainers</span>
-          <span><strong>5+</strong> Years</span>
-        </div>
       </div>
       <button
         className="hero-scroll-down"

@@ -6,8 +6,8 @@ const About = () => {
           <div className="about-visual">
             <div className="about-image-frame">
               <img
-                src="/images/about.jpeg"
-                alt="Strength-inspired artwork inside Flex Fitness Gym"
+                src="/images/gallery/2.png"
+                alt="Flex Fitness Gym strength training equipment"
                 loading="lazy"
               />
               <div className="about-image-overlay"></div>

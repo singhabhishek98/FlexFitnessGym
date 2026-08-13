@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
 const galleryImages = [
-  { src: '/images/gallery/1.jpg', alt: 'Flex Fitness Gym Varanasi training floor', label: 'Training Floor' },
-  { src: '/images/gallery/2.jpeg', alt: 'Flex Fitness Gym weight training equipment', label: 'Strength Zone' },
+  { src: '/images/gallery/2.png', alt: 'Flex Fitness Gym Varanasi training floor', label: 'Training Floor' },
+  { src: '/images/gallery/1.jpg', alt: 'Flex Fitness Gym weight training equipment', label: 'Strength Zone' },
   { src: '/images/gallery/3.jpg', alt: 'Flex Fitness Gym premium facilities', label: 'Premium Facilities' },
   { src: '/images/gallery/4.jpg', alt: 'Flex Fitness Gym free weight workout area', label: 'Free Weights' },
   { src: '/images/gallery/5.jpg', alt: 'Flex Fitness Gym strength training setup', label: 'Performance Setup' },

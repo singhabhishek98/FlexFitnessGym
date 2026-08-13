@@ -51,9 +51,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="logo">
-              <img src="images/left.png" alt="Left" className="footer-logo-img" />
+              <img src="/images/left.png" alt="Left" className="footer-logo-img" />
               <span>FLEX FITNESS</span>
-              <img src="images/right.png" alt="Right" className="footer-logo-img" />
+              <img src="/images/right.png" alt="Right" className="footer-logo-img" />
             </div>
             <p>Transform your body and mind with our expert trainers and state-of-the-art facilities.</p>
             <div className="social-links">
