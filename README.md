@@ -52,6 +52,18 @@ key: 'rzp_test_YOUR_KEY_HERE'
 npm run dev
 ```
 
+### Festival Calendar API
+
+Festival dates are loaded once per year from Calendarific and saved in a shared Netlify Blob. Browsers also keep the same yearly response in `localStorage`, so repeat visits do not call the API or Function again.
+
+1. Create a Calendarific API key.
+2. In Netlify, open **Project configuration → Environment variables**.
+3. Add `CALENDARIFIC_API_KEY` with the secret API key as its value.
+
+Never prefix this variable with `VITE_`; that would expose the key in the browser bundle. If the API is unavailable, the app uses its bundled festival-date fallback.
+
+Celebration themes can be previewed locally with `?festival=diwali`, replacing `diwali` with `holi`, `christmas`, `republic-day`, `independence-day`, `raksha-bandhan`, `janmashtami`, or `new-year`.
+
 ### 4. SEO Setup (Important!)
 - Open `SEO_SETUP_GUIDE.md` for detailed instructions
 - Add Google Search Console verification code

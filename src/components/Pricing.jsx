@@ -137,7 +137,7 @@ const Pricing = () => {
             <Card
               key={`${activeTab.key}-${index}`}
               className={`pricing-card ant-pricing-card depth-card ${plan.badge ? 'popular' : ''} ${plan.isTrainer ? 'trainer-card' : ''}`}
-              bordered={false}
+              variant="borderless"
               data-tilt
               data-tilt-strength="5"
             >
