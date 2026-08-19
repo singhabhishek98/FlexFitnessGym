@@ -52,22 +52,22 @@ const Contact = () => {
           <div className="title-underline"></div>
         </div>
         <div className="contact-info-row">
-          <Card className="info-card depth-card" bordered={false} data-tilt data-tilt-strength="5">
+          <Card className="info-card depth-card" variant="borderless" data-tilt data-tilt-strength="5">
             <EnvironmentOutlined className="info-card-icon" />
             <h4>Address</h4>
             <p>Nakain Chauraha, Near Primary School Varanasi</p>
           </Card>
-          <Card className="info-card depth-card" bordered={false} data-tilt data-tilt-strength="5">
+          <Card className="info-card depth-card" variant="borderless" data-tilt data-tilt-strength="5">
             <PhoneOutlined className="info-card-icon" />
             <h4>Phone</h4>
             <p>+91 8303201744</p>
           </Card>
-          <Card className="info-card depth-card" bordered={false} data-tilt data-tilt-strength="5">
+          <Card className="info-card depth-card" variant="borderless" data-tilt data-tilt-strength="5">
             <MailOutlined className="info-card-icon" />
             <h4>Email</h4>
             <p>flexfitnessvns@gmail.com</p>
           </Card>
-          <Card className="info-card depth-card" bordered={false} data-tilt data-tilt-strength="5">
+          <Card className="info-card depth-card" variant="borderless" data-tilt data-tilt-strength="5">
             <ClockCircleOutlined className="info-card-icon" />
             <h4>Hours</h4>
             <p>Morning: 5:00-9:30 AM</p>
@@ -76,7 +76,7 @@ const Contact = () => {
         </div>
         <div className="contact-content">
           <div className="contact-left">
-            <Card className="contact-form-card depth-panel" bordered={false} data-tilt data-tilt-strength="2">
+            <Card className="contact-form-card depth-panel" variant="borderless" data-tilt data-tilt-strength="2">
               <Form
                 form={form}
                 layout="vertical"
@@ -138,7 +138,7 @@ const Contact = () => {
             </Card>
           </div>
           <div className="contact-map-wrap">
-            <Card className="contact-map-card depth-panel" bordered={false} data-tilt data-tilt-strength="2">
+            <Card className="contact-map-card depth-panel" variant="borderless" data-tilt data-tilt-strength="2">
               <div className="contact-map">
                 <iframe
                   src="https://www.google.com/maps?q=25.27683865325454,82.93467628256006&z=18&output=embed"
